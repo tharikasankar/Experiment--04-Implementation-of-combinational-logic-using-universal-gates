@@ -26,18 +26,59 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
-## Logic Diagram
+
 ## Procedure
 ## Program:
-/*
+
 Program to implement the given logic function using NAND and NOR gates and to verify its operations in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-## RTL realization
+PROGRAM USING NAND:
+
+module expfourone(a,b,c,d,f);
+input a,b,c,d;
+output f;
+wire f1,f2,f3;
+assign f1 = (~c&~b&~a);
+assign f2 = (~d&~c&~a);
+assign f3 = (c&~(~b)&~a);
+assign f= f1&~f2&~f3;
+endmodule
+PROGRAM USING NOR:
+
+module expfourtwo(a,b,c,d,f);
+input a,b,c,d;
+output f;
+wire f1,f2,f3,f4;
+assign f1 = c&(~b)&a;
+assign f2 = d&(~c)&a;
+assign f3 = c&(~b)&a;
+assign f4 = ~(f1|f2|f3);
+not(f,f4);
+endmodule 
 
 ## Output:
-## RTL
+## RTL realization
+
+FOR PROGRAM USING NAND:
+![Screenshot (36)](https://user-images.githubusercontent.com/119475507/214619120-69d786bd-dd1e-4ec5-ae70-c4a525e94831.png)
+
+FOR PROGRAM USING NOR:
+![Screenshot (37)](https://user-images.githubusercontent.com/119475507/214619572-532c083b-60fe-4c0d-82d5-d8323f17c64a.png)
+
+TRUTH TABLE:
+
+FOR PROGRAM USING NAND:
+![image](https://user-images.githubusercontent.com/119475507/214619929-c9460972-beb8-426c-a575-97af8203ee16.png)
+
+FOR PROGRAM USING NOR:
+![image](https://user-images.githubusercontent.com/119475507/214620154-9e2fd44d-c5c1-48b9-8a0a-3bc78630c400.png)
+
+
 ## Timing Diagram
+FOR PROGRAM USING NAND:
+![image](https://user-images.githubusercontent.com/119475507/214620412-2bd16e60-a483-4f45-bc4c-382b1cdfa5f7.png)
+
+FOR PROGRAM USING NOR:
+![image](https://user-images.githubusercontent.com/119475507/214620765-8cfbb081-5b68-4504-b4b7-d91a1f68060d.png)
+
 ## Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
