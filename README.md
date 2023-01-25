@@ -53,7 +53,7 @@ assign f2 = d&(~c)&a;
 assign f3 = c&(~b)&a;
 assign f4 = ~(f1|f2|f3);
 not(f,f4);
-endmodule 
+endmodule
 
 ## Output:
 ## RTL realization
